@@ -11,13 +11,13 @@ fun readStrictCsv(inputStream: InputStream): List<Talk> = csvReader().open(input
             id = ++lineCount,   // TODO drop this nasty hack once a DB is present
             title = it["Title"]!!.trim(),
             abstract = it["Abstract"]!!.trim(),
-            speakers = parseStringToList(it["Speakers"]!!.trim()),
-            topics = parseStringToList(it["Topics"]!!.trim()),
+            speakers = it["Speakers"]!!.trim().convertToList(),
+            topics = it["Topics"]!!.trim().convertToList(),
             room = it["Room"]!!.trim()
         )
     }.toList()
 }
 
-fun parseStringToList(listAsString: String): List<String> {
-    return listAsString.removeSurrounding("\"").split(",").map { it.trim() }
+fun String.convertToList(): List<String> {
+    return this.removeSurrounding("\"").split(",").map { it.trim() }
 }
