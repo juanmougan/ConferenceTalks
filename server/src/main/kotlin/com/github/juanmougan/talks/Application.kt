@@ -45,5 +45,11 @@ fun Application.module() {
         get("/talks") {
             call.respond(talkService.getAll())
         }
+        get("/talks/{id}") {
+            val id = call.parameters["id"]?.toLong() ?: 0L
+            call.respond(
+                talkService.getById(id) ?: throw RuntimeException("Talk not found with ID: $id")
+            )
+        }
     }
 }

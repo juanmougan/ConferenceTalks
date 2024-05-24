@@ -8,5 +8,6 @@ data class Talk(
     val title: String,
     val abstract: String,
     val speakers: List<String>,
-    val topics: List<String>
+    val topics: List<String>,
+    val room: String
 )
