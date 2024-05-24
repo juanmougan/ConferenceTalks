@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flowOf
 import java.io.File
+import java.time.LocalDateTime
+import java.time.Month
 
 class TalkService {
 
@@ -19,7 +21,9 @@ class TalkService {
                 "Way better than Java :)",
                 listOf("Mary", "Peter"),
                 listOf("Programming"),
-                "Room 1A - Aconcagua"
+                "Room 1A - Aconcagua",
+                startingTime = LocalDateTime.of(2024, Month.JANUARY, 10, 13, 30),
+                endingTime = LocalDateTime.of(2024, Month.JANUARY, 10, 14, 30)
             ),
             Talk(
                 2L,
@@ -27,7 +31,9 @@ class TalkService {
                 "Some key concepts",
                 listOf("Ashwin", "Jian Li"),
                 listOf("Mobile"),
-                "Room 2B - Chaltén"
+                "Room 2B - Chaltén",
+                startingTime = LocalDateTime.of(2024, Month.MAY, 7, 9, 30),
+                endingTime = LocalDateTime.of(2024, Month.JANUARY, 7, 11, 30)
             )
         )
     }
